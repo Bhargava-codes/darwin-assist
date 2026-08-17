@@ -10,8 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as OpsRouteImport } from './routes/ops'
 import { Route as RequestsRouteImport } from './routes/requests'
+import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as ApiAgentRouteImport } from './routes/api/agent'
 import { Route as ApiFeedbackRouteImport } from './routes/api/feedback'
 import { Route as ApiHrActionRouteImport } from './routes/api/hr-action'
@@ -20,6 +23,7 @@ import { Route as ApiSessionRouteImport } from './routes/api/session'
 import { Route as AssistantIndexRouteImport } from './routes/assistant.index'
 import { Route as AssistantSessionIdRouteImport } from './routes/assistant.$sessionId'
 import { Route as OpsIndexRouteImport } from './routes/ops.index'
+import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as ApiEngineEmbedRouteImport } from './routes/api/engine/embed'
 import { Route as ApiEngineSessionsRouteImport } from './routes/api/engine/sessions'
 import { Route as ApiEngineTurnRouteImport } from './routes/api/engine/turn'
@@ -29,6 +33,11 @@ import { Route as OpsSessionsSessionIdRouteImport } from './routes/ops.sessions.
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OpsRoute = OpsRouteImport.update({
@@ -41,6 +50,18 @@ const RequestsRoute = RequestsRouteImport.update({
   path: '/requests',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotmcpChar93ListToolsRoute =
+  Char91DotmcpChar93ListToolsRouteImport.update({
+    id: '/.mcp/list-tools',
+    path: '/.mcp/list-tools',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiAgentRoute = ApiAgentRouteImport.update({
   id: '/api/agent',
   path: '/api/agent',
@@ -81,6 +102,12 @@ const OpsIndexRoute = OpsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => OpsRoute,
 } as any)
+const Char91DotmcpChar93InvokeToolToolRoute =
+  Char91DotmcpChar93InvokeToolToolRouteImport.update({
+    id: '/.mcp/invoke-tool/$tool',
+    path: '/.mcp/invoke-tool/$tool',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiEngineEmbedRoute = ApiEngineEmbedRouteImport.update({
   id: '/api/engine/embed',
   path: '/api/engine/embed',
@@ -109,8 +136,11 @@ const OpsSessionsSessionIdRoute = OpsSessionsSessionIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/mcp': typeof McpRoute
   '/ops': typeof OpsRouteWithChildren
   '/requests': typeof RequestsRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/api/agent': typeof ApiAgentRoute
   '/api/feedback': typeof ApiFeedbackRoute
   '/api/hr-action': typeof ApiHrActionRoute
@@ -119,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/assistant/$sessionId': typeof AssistantSessionIdRoute
   '/assistant/': typeof AssistantIndexRoute
   '/ops/': typeof OpsIndexRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/api/engine/embed': typeof ApiEngineEmbedRoute
   '/api/engine/sessions': typeof ApiEngineSessionsRoute
   '/api/engine/turn': typeof ApiEngineTurnRoute
@@ -127,7 +158,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/mcp': typeof McpRoute
   '/requests': typeof RequestsRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/api/agent': typeof ApiAgentRoute
   '/api/feedback': typeof ApiFeedbackRoute
   '/api/hr-action': typeof ApiHrActionRoute
@@ -136,6 +170,7 @@ export interface FileRoutesByTo {
   '/assistant/$sessionId': typeof AssistantSessionIdRoute
   '/assistant': typeof AssistantIndexRoute
   '/ops': typeof OpsIndexRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/api/engine/embed': typeof ApiEngineEmbedRoute
   '/api/engine/sessions': typeof ApiEngineSessionsRoute
   '/api/engine/turn': typeof ApiEngineTurnRoute
@@ -145,8 +180,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/mcp': typeof McpRoute
   '/ops': typeof OpsRouteWithChildren
   '/requests': typeof RequestsRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/api/agent': typeof ApiAgentRoute
   '/api/feedback': typeof ApiFeedbackRoute
   '/api/hr-action': typeof ApiHrActionRoute
@@ -155,6 +193,7 @@ export interface FileRoutesById {
   '/assistant/$sessionId': typeof AssistantSessionIdRoute
   '/assistant/': typeof AssistantIndexRoute
   '/ops/': typeof OpsIndexRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/api/engine/embed': typeof ApiEngineEmbedRoute
   '/api/engine/sessions': typeof ApiEngineSessionsRoute
   '/api/engine/turn': typeof ApiEngineTurnRoute
@@ -165,8 +204,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/mcp'
     | '/ops'
     | '/requests'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/api/agent'
     | '/api/feedback'
     | '/api/hr-action'
@@ -175,6 +217,7 @@ export interface FileRouteTypes {
     | '/assistant/$sessionId'
     | '/assistant/'
     | '/ops/'
+    | '/.mcp/invoke-tool/$tool'
     | '/api/engine/embed'
     | '/api/engine/sessions'
     | '/api/engine/turn'
@@ -183,7 +226,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/mcp'
     | '/requests'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/api/agent'
     | '/api/feedback'
     | '/api/hr-action'
@@ -192,6 +238,7 @@ export interface FileRouteTypes {
     | '/assistant/$sessionId'
     | '/assistant'
     | '/ops'
+    | '/.mcp/invoke-tool/$tool'
     | '/api/engine/embed'
     | '/api/engine/sessions'
     | '/api/engine/turn'
@@ -200,8 +247,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/mcp'
     | '/ops'
     | '/requests'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/api/agent'
     | '/api/feedback'
     | '/api/hr-action'
@@ -210,6 +260,7 @@ export interface FileRouteTypes {
     | '/assistant/$sessionId'
     | '/assistant/'
     | '/ops/'
+    | '/.mcp/invoke-tool/$tool'
     | '/api/engine/embed'
     | '/api/engine/sessions'
     | '/api/engine/turn'
@@ -219,8 +270,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  McpRoute: typeof McpRoute
   OpsRoute: typeof OpsRouteWithChildren
   RequestsRoute: typeof RequestsRoute
+  Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   ApiAgentRoute: typeof ApiAgentRoute
   ApiFeedbackRoute: typeof ApiFeedbackRoute
   ApiHrActionRoute: typeof ApiHrActionRoute
@@ -228,6 +282,7 @@ export interface RootRouteChildren {
   ApiSessionRoute: typeof ApiSessionRoute
   AssistantSessionIdRoute: typeof AssistantSessionIdRoute
   AssistantIndexRoute: typeof AssistantIndexRoute
+  Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   ApiEngineEmbedRoute: typeof ApiEngineEmbedRoute
   ApiEngineSessionsRoute: typeof ApiEngineSessionsRoute
   ApiEngineTurnRoute: typeof ApiEngineTurnRoute
@@ -242,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ops': {
       id: '/ops'
       path: '/ops'
@@ -254,6 +316,20 @@ declare module '@tanstack/react-router' {
       path: '/requests'
       fullPath: '/requests'
       preLoaderRoute: typeof RequestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/list-tools': {
+      id: '/.mcp/list-tools'
+      path: '/.mcp/list-tools'
+      fullPath: '/.mcp/list-tools'
+      preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/agent': {
@@ -311,6 +387,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/ops/'
       preLoaderRoute: typeof OpsIndexRouteImport
       parentRoute: typeof OpsRoute
+    }
+    '/.mcp/invoke-tool/$tool': {
+      id: '/.mcp/invoke-tool/$tool'
+      path: '/.mcp/invoke-tool/$tool'
+      fullPath: '/.mcp/invoke-tool/$tool'
+      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/api/engine/embed': {
       id: '/api/engine/embed'
@@ -375,8 +458,12 @@ const ApiOpsRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  McpRoute: McpRoute,
   OpsRoute: OpsRouteWithChildren,
   RequestsRoute: RequestsRoute,
+  Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   ApiAgentRoute: ApiAgentRoute,
   ApiFeedbackRoute: ApiFeedbackRoute,
   ApiHrActionRoute: ApiHrActionRoute,
@@ -384,6 +471,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiSessionRoute: ApiSessionRoute,
   AssistantSessionIdRoute: AssistantSessionIdRoute,
   AssistantIndexRoute: AssistantIndexRoute,
+  Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
   ApiEngineEmbedRoute: ApiEngineEmbedRoute,
   ApiEngineSessionsRoute: ApiEngineSessionsRoute,
   ApiEngineTurnRoute: ApiEngineTurnRoute,
