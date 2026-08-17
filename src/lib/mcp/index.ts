@@ -1,4 +1,4 @@
-import { auth, defineMcp, type AnyToolDefinition } from "@lovable.dev/mcp-js";
+import { auth, defineMcp } from "@lovable.dev/mcp-js";
 import getMyHrProfile from "./tools/get-my-hr-profile";
 import getLeaveBalances from "./tools/get-leave-balances";
 import listLeaveRequests from "./tools/list-leave-requests";
@@ -19,5 +19,13 @@ export default defineMcp({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated",
   }),
-  tools: [getMyHrProfile, getLeaveBalances, listLeaveRequests, listWfhRequests, searchHrPolicy],
+  // Cast: the SDK's tool list type requires an explicit outputSchema under
+  // exactOptionalPropertyTypes; these tools return unstructured content.
+  tools: [
+    getMyHrProfile,
+    getLeaveBalances,
+    listLeaveRequests,
+    listWfhRequests,
+    searchHrPolicy,
+  ] as unknown as Parameters<typeof defineMcp>[0]["tools"],
 });
