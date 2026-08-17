@@ -126,6 +126,8 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   // /ops is a desktop instrument, not part of the 430px employee shell.
   const isOps = pathname.startsWith("/ops");
+  // Sign-in and OAuth consent are standalone screens: no bottom tab bar.
+  const isChromeless = pathname === "/auth" || pathname.startsWith("/.lovable/");
 
   return (
     <QueryClientProvider client={queryClient}>
