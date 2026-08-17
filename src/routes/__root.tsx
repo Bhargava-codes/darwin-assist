@@ -126,12 +126,18 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   // /ops is a desktop instrument, not part of the 430px employee shell.
   const isOps = pathname.startsWith("/ops");
+  // Sign-in and OAuth consent are standalone screens: no bottom tab bar.
+  const isChromeless = pathname === "/auth" || pathname.startsWith("/.lovable/");
 
   return (
     <QueryClientProvider client={queryClient}>
       <HrProvider>
         {isOps ? (
           <div className="min-h-screen w-full bg-ops-bg">
+            <Outlet />
+          </div>
+        ) : isChromeless ? (
+          <div className="mx-auto flex min-h-screen w-full max-w-[430px] flex-col bg-background">
             <Outlet />
           </div>
         ) : (
