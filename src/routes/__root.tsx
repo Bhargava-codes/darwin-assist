@@ -136,6 +136,10 @@ function RootComponent() {
           <div className="min-h-screen w-full bg-ops-bg">
             <Outlet />
           </div>
+        ) : isChromeless ? (
+          <div className="mx-auto flex min-h-screen w-full max-w-[430px] flex-col bg-background">
+            <Outlet />
+          </div>
         ) : (
           <div className="mx-auto flex min-h-screen w-full max-w-[430px] flex-col bg-background">
             <main className="flex flex-1 flex-col pb-[72px]">
