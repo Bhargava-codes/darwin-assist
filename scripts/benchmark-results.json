@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-08-09",
+  "scenarios": {
+    "S1": {
+      "agentic": { "tokens_in": 18610, "tokens_out": 440, "cost_usd": 0.018766 },
+      "baseline_prefetch": { "tokens_in": 4618, "tokens_out": 230, "cost_usd": 0.008072 },
+      "baseline_lean": { "tokens_in": 2033, "tokens_out": 139, "cost_usd": 0.003931 }
+    },
+    "S2": {
+      "agentic": { "tokens_in": 16925, "tokens_out": 688, "cost_usd": 0.019682 },
+      "baseline_prefetch": { "tokens_in": 4616, "tokens_out": 233, "cost_usd": 0.0081 },
+      "baseline_lean": { "tokens_in": 2031, "tokens_out": 223, "cost_usd": 0.004769 }
+    },
+    "S3": {
+      "agentic": { "tokens_in": 17541, "tokens_out": 680, "cost_usd": 0.01969 },
+      "baseline_prefetch": { "tokens_in": 4617, "tokens_out": 117, "cost_usd": 0.006941 },
+      "baseline_lean": { "tokens_in": 2032, "tokens_out": 206, "cost_usd": 0.0046 }
+    },
+    "S4": {
+      "agentic": { "tokens_in": 6296, "tokens_out": 385, "cost_usd": 0.01172 },
+      "baseline_prefetch": { "tokens_in": 4618, "tokens_out": 362, "cost_usd": 0.009392 },
+      "baseline_lean": { "tokens_in": 2033, "tokens_out": 261, "cost_usd": 0.005151 }
+    },
+    "S5": {
+      "agentic": { "tokens_in": 16884, "tokens_out": 869, "cost_usd": 0.019628 },
+      "baseline_prefetch": { "tokens_in": 4619, "tokens_out": 256, "cost_usd": 0.008334 },
+      "baseline_lean": { "tokens_in": 2034, "tokens_out": 171, "cost_usd": 0.004253 }
+    },
+    "S6": {
+      "agentic": { "tokens_in": 16897, "tokens_out": 645, "cost_usd": 0.019703 },
+      "baseline_prefetch": { "tokens_in": 4618, "tokens_out": 217, "cost_usd": 0.007942 },
+      "baseline_lean": { "tokens_in": 2033, "tokens_out": 193, "cost_usd": 0.004471 }
+    },
+    "S7": {
+      "agentic": { "tokens_in": 6294, "tokens_out": 250, "cost_usd": 0.010367 },
+      "baseline_prefetch": { "tokens_in": 4617, "tokens_out": 180, "cost_usd": 0.007571 },
+      "baseline_lean": { "tokens_in": 2032, "tokens_out": 97, "cost_usd": 0.00351 }
+    },
+    "S8": {
+      "agentic": { "tokens_in": 19342, "tokens_out": 1274, "cost_usd": 0.023931 },
+      "baseline_prefetch": { "tokens_in": 4617, "tokens_out": 639, "cost_usd": 0.012161 },
+      "baseline_lean": { "tokens_in": 2032, "tokens_out": 52, "cost_usd": 0.00306 }
+    },
+    "S9": {
+      "agentic": { "tokens_in": 6293, "tokens_out": 156, "cost_usd": 0.009426 },
+      "baseline_prefetch": { "tokens_in": 4616, "tokens_out": 113, "cost_usd": 0.0069 },
+      "baseline_lean": { "tokens_in": 2031, "tokens_out": 103, "cost_usd": 0.003569 }
+    },
+    "S10": {
+      "agentic": { "tokens_in": 16915, "tokens_out": 644, "cost_usd": 0.019802 },
+      "baseline_prefetch": { "tokens_in": 4617, "tokens_out": 155, "cost_usd": 0.007321 },
+      "baseline_lean": { "tokens_in": 2032, "tokens_out": 292, "cost_usd": 0.00546 }
+    }
+  }
+}
