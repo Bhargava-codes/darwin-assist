@@ -1,4 +1,4 @@
-import { auth, defineMcp } from "@lovable.dev/mcp-js";
+import { auth, defineMcp, type AnyToolDefinition } from "@lovable.dev/mcp-js";
 import getMyHrProfile from "./tools/get-my-hr-profile";
 import getLeaveBalances from "./tools/get-leave-balances";
 import listLeaveRequests from "./tools/list-leave-requests";
