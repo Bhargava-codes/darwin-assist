@@ -24,6 +24,7 @@ import { Route as ApiSessionRouteImport } from './routes/api/session'
 import { Route as AssistantIndexRouteImport } from './routes/assistant.index'
 import { Route as AssistantSessionIdRouteImport } from './routes/assistant.$sessionId'
 import { Route as OpsIndexRouteImport } from './routes/ops.index'
+import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as ApiEngineEmbedRouteImport } from './routes/api/engine/embed'
 import { Route as ApiEngineSessionsRouteImport } from './routes/api/engine/sessions'
@@ -108,6 +109,11 @@ const OpsIndexRoute = OpsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => OpsRoute,
 } as any)
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Char91DotmcpChar93InvokeToolToolRoute =
   Char91DotmcpChar93InvokeToolToolRouteImport.update({
     id: '/.mcp/invoke-tool/$tool',
@@ -156,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/assistant/$sessionId': typeof AssistantSessionIdRoute
   '/assistant/': typeof AssistantIndexRoute
   '/ops/': typeof OpsIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/api/engine/embed': typeof ApiEngineEmbedRoute
   '/api/engine/sessions': typeof ApiEngineSessionsRoute
@@ -178,6 +185,7 @@ export interface FileRoutesByTo {
   '/assistant/$sessionId': typeof AssistantSessionIdRoute
   '/assistant': typeof AssistantIndexRoute
   '/ops': typeof OpsIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/api/engine/embed': typeof ApiEngineEmbedRoute
   '/api/engine/sessions': typeof ApiEngineSessionsRoute
@@ -202,6 +210,7 @@ export interface FileRoutesById {
   '/assistant/$sessionId': typeof AssistantSessionIdRoute
   '/assistant/': typeof AssistantIndexRoute
   '/ops/': typeof OpsIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/api/engine/embed': typeof ApiEngineEmbedRoute
   '/api/engine/sessions': typeof ApiEngineSessionsRoute
@@ -227,6 +236,7 @@ export interface FileRouteTypes {
     | '/assistant/$sessionId'
     | '/assistant/'
     | '/ops/'
+    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
     | '/api/engine/embed'
     | '/api/engine/sessions'
@@ -249,6 +259,7 @@ export interface FileRouteTypes {
     | '/assistant/$sessionId'
     | '/assistant'
     | '/ops'
+    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
     | '/api/engine/embed'
     | '/api/engine/sessions'
@@ -272,6 +283,7 @@ export interface FileRouteTypes {
     | '/assistant/$sessionId'
     | '/assistant/'
     | '/ops/'
+    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
     | '/api/engine/embed'
     | '/api/engine/sessions'
@@ -295,6 +307,7 @@ export interface RootRouteChildren {
   ApiSessionRoute: typeof ApiSessionRoute
   AssistantSessionIdRoute: typeof AssistantSessionIdRoute
   AssistantIndexRoute: typeof AssistantIndexRoute
+  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   ApiEngineEmbedRoute: typeof ApiEngineEmbedRoute
   ApiEngineSessionsRoute: typeof ApiEngineSessionsRoute
@@ -408,6 +421,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OpsIndexRouteImport
       parentRoute: typeof OpsRoute
     }
+    '/.lovable/oauth/consent': {
+      id: '/.lovable/oauth/consent'
+      path: '/.lovable/oauth/consent'
+      fullPath: '/.lovable/oauth/consent'
+      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/.mcp/invoke-tool/$tool': {
       id: '/.mcp/invoke-tool/$tool'
       path: '/.mcp/invoke-tool/$tool'
@@ -492,6 +512,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiSessionRoute: ApiSessionRoute,
   AssistantSessionIdRoute: AssistantSessionIdRoute,
   AssistantIndexRoute: AssistantIndexRoute,
+  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
   ApiEngineEmbedRoute: ApiEngineEmbedRoute,
   ApiEngineSessionsRoute: ApiEngineSessionsRoute,
