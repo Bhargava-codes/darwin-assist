@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.tenure_months(uuid) FROM PUBLIC, anon, authenticated;
